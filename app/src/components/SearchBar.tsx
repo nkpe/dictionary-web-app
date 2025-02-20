@@ -7,10 +7,11 @@ export const SearchBar = ({updateDictionaryResult}: {updateDictionaryResult: (va
 
     const parseResult = (data: any): DictionaryResult | null => {   
         const firstData = data[0]
+        console.log(firstData)
         try {
             const result: DictionaryResult = {
                 word: firstData["word"],
-                phoneticsText:  firstData["phonetics"][0]["text"],
+                phoneticsText:  firstData["phonetics"].find(el => el["text"] !== undefined)["text"],
                 meanings: {
                     partOfSpeech: firstData["meanings"][0]["partOfSpeech"],
                     definitions: firstData["meanings"][0]["definitions"],
