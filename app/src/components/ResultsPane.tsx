@@ -8,7 +8,7 @@ export const ResultsPane = ({ dictionaryResult }: { dictionaryResult: Dictionary
     );
 
     const synonyms = dictionaryResult.meanings.synonyms.map((synonm, i) =>
-        <li key={i}>{synonm}</li>
+        <li key={i} className="text-blue-800">{synonm}</li>
     )
 
     return (
@@ -21,19 +21,19 @@ export const ResultsPane = ({ dictionaryResult }: { dictionaryResult: Dictionary
             <p>{dictionaryResult.meanings.partOfSpeech}</p>
 
             <div>
-                <h2 className="font-bold">meaning</h2>
+                <h2 className="font-bold  text-gray-500">meaning</h2>
                 <ol className="list-decimal list-inside">
                     {definitions}
                 </ol>
             </div>
 
-            <div>
+            <div className="flex flex-wrap flex-row gap-1">
                 <h2 className="font-bold">synonyms</h2>
                 <ul>{synonyms}</ul>
             </div>
 
-            <div className="flex flex-wrap flex-row gap-1">
-                <p>source: </p> <a href={dictionaryResult.sourceUrl}>{dictionaryResult.sourceUrl}</a>
+            <div className="flex flex-wrap flex-row gap-1 text-gray-500">
+                <p>source: </p> <a href={dictionaryResult.sourceUrl} className="underline">{dictionaryResult.sourceUrl}</a>
             </div>
            
 
