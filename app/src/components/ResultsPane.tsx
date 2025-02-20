@@ -3,12 +3,12 @@ import { DictionaryResult } from "../types/DictionaryResult"
 export const ResultsPane = ({ dictionaryResult }: { dictionaryResult: DictionaryResult }) => {
     console.log("RESULT: ", dictionaryResult)
 
-    const definitions = dictionaryResult.meanings.definitions.map((def, i) =>
-        <li key={i}>{def.definition}</li>
+    const definitions = dictionaryResult.meanings.definitions.map((definition, i) =>
+        <li key={i}>{definition}</li>
     );
 
-    const synonyms = dictionaryResult.meanings.synonyms.map((synonm, i) =>
-        <li key={i} className="text-blue-800">{synonm}</li>
+    const synonyms = dictionaryResult.meanings.synonyms.map((synonym, i) =>
+        <li key={i} className="text-blue-800">{synonym}</li>
     )
 
     return (

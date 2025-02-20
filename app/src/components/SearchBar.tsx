@@ -11,10 +11,10 @@ export const SearchBar = ({updateDictionaryResult}: {updateDictionaryResult: (va
         try {
             const result: DictionaryResult = {
                 word: firstData["word"],
-                phoneticsText:  firstData["phonetics"].find(el => el["text"] !== undefined)["text"],
+                phoneticsText:  firstData["phonetics"].find((el: any) => el["text"] !== undefined)["text"],
                 meanings: {
                     partOfSpeech: firstData["meanings"][0]["partOfSpeech"],
-                    definitions: firstData["meanings"][0]["definitions"],
+                    definitions: firstData["meanings"][0]["definitions"].map((obj: any) => obj.definition),
                     synonyms: firstData["meanings"][0]["synonyms"]
                 },
                 sourceUrl: firstData["sourceUrls"][0]
