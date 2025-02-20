@@ -32,6 +32,8 @@ export const ResultsPane = ({ dictionaryResult }: { dictionaryResult: Dictionary
                 <ul className="flex flex-row flex-wrap gap-2 ">{synonyms}</ul>
             </div>
 
+            <hr className="border-1 border-solid border-gray-500 rounded-sm" />
+
             <div className="flex flex-wrap flex-row gap-1 text-gray-500">
                 <p>source: </p> <a href={dictionaryResult.sourceUrl} className="underline">{dictionaryResult.sourceUrl}</a>
             </div>

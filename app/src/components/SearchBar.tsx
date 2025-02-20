@@ -22,7 +22,7 @@ export const SearchBar = ({updateDictionaryResult}: {updateDictionaryResult: (va
            return result;
         } catch (error){
             if (error instanceof Error){
-                console.error(error.message)
+                console.error(error)
             }
             return null;
         }   
@@ -41,7 +41,7 @@ export const SearchBar = ({updateDictionaryResult}: {updateDictionaryResult: (va
     }
 
     return (
-        <div className="reer rounded-lg w-full flex p-[5px]">
+        <div className="border-2 border-solid border-cyan-500 rounded-lg w-full flex p-[5px]">
             <input type="text" placeholder="Start typing any word" id="search-input" className="w-full" value={word} onChange={e => setWord(e.target.value)} onKeyDown={(e) => {
                 if (e.key === "Enter") {
                     sendRequest();
