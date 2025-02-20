@@ -1,16 +1,41 @@
 import { Search } from 'lucide-react';
 import { useState } from 'react';
+import { DictionaryResult } from '../types/DictionaryResult';
 
-export const SearchBar = () => {
-    const [word, setWord] = useState("");
+export const SearchBar = ({updateDictionaryResult}: {updateDictionaryResult: (value: DictionaryResult | null) => void}) => {
+    const [word, setWord] = useState<string>("");
+
+    const parseResult = (data: any): DictionaryResult | null => {   
+        const firstData = data[0]
+        try {
+            const result: DictionaryResult = {
+                word: firstData["word"],
+                phoneticsText:  firstData["phonetics"][0]["text"],
+                meanings: {
+                    partOfSpeech: firstData["meanings"][0]["partOfSpeech"],
+                    definitions: firstData["meanings"][0]["definitions"],
+                    synonyms: firstData["meanings"][0]["synonyms"]
+                },
+                sourceUrl: firstData["sourceUrls"][0]
+           }
+           return result;
+        } catch (error){
+            if (error instanceof Error){
+                console.error(error)
+            }
+            return null;
+        }   
+    }
 
     const sendRequest = () => {
-        // http request
-        console.log("button")
         const url = `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`;
+
         fetch(url)
             .then(response => response.json())
-            .then(data => console.log(data))
+            .then(data => {
+                const result: DictionaryResult | null = parseResult(data);
+                updateDictionaryResult(result)
+            })
             .catch(error => console.error(error.message))
     }
 
