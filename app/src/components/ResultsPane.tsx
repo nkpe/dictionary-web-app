@@ -12,7 +12,7 @@ export const ResultsPane = ({ dictionaryResult }: { dictionaryResult: Dictionary
     )
 
     return (
-        <div className="h-[900px] results-container border-2 border-solid border-cyan-500 rounded-lg w-full flex flex-col gap-3 p-[5px]">
+        <div className="min-h-[500px] results-container border-2 border-solid border-cyan-500 rounded-lg w-full flex flex-col gap-3 p-[5px]">
             <div>
                 <p>{dictionaryResult.word}</p>
                 <p>{dictionaryResult.phoneticsText}</p>
@@ -29,7 +29,7 @@ export const ResultsPane = ({ dictionaryResult }: { dictionaryResult: Dictionary
 
             <div className="flex flex-wrap flex-row gap-1">
                 <h2 className="font-bold">synonyms</h2>
-                <ul>{synonyms}</ul>
+                <ul className="flex flex-row flex-wrap gap-2 ">{synonyms}</ul>
             </div>
 
             <div className="flex flex-wrap flex-row gap-1 text-gray-500">
