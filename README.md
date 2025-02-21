@@ -22,4 +22,10 @@ Longer results generated from searching for 'dog':
 ## Improvements to implement
 - Improve handling of missing information returned from the api, such as informing the user that the information is missing, while still displaying the information that has been found.  
 - Improve user experience if word has been not found by implementing a message that is display instead of the results. Including empty search is handled. 
+- Cross browser testing - currently only tested in Chrome. 
  
+ ## Technologies used
+ - React
+ - Vite
+ - Typescript
+ - TailwindCSS
